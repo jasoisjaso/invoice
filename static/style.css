@@ -1,0 +1,181 @@
+
+:root {
+    --pc-primary-dark: #1a5276; /* Deep Steel Blue */
+    --pc-secondary-light: #5d6d7e; /* Professional Blue-Gray */
+    --pc-accent-green: #27ae60; /* Professional Green */
+    --pc-text-dark: #34495e; /* Darker text for readability */
+    --pc-text-light: #ffffff;
+    --pc-background-light: #fdfdfe; /* Off-white for soft background */
+    --pc-border-light: #e9ecef; /* Lighter border for subtle separation */
+    --pc-card-bg: #ffffff; /* White card background */
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--pc-background-light);
+    color: var(--pc-text-dark);
+    line-height: 1.6;
+}
+
+.container, .container-fluid {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.card {
+    border: 1px solid var(--pc-border-light);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    background-color: var(--pc-card-bg);
+}
+
+.card-header {
+    background-color: var(--pc-primary-dark) !important;
+    color: var(--pc-text-light) !important;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--pc-border-light);
+    border-top-left-radius: calc(0.5rem - 1px);
+    border-top-right-radius: calc(0.5rem - 1px);
+}
+
+.card-header h1, .card-header h3 {
+    color: var(--pc-text-light) !important;
+    margin-bottom: 0;
+    font-size: 1.5rem;
+}
+
+.card-header img {
+    max-height: 35px; /* Slightly smaller logo */
+    width: auto;
+    opacity: 0.9; /* Slightly muted */
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.btn-primary {
+    background-color: var(--pc-primary-dark);
+    border-color: var(--pc-primary-dark);
+    color: var(--pc-text-light);
+    font-weight: 600;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.3rem;
+}
+
+.btn-primary:hover {
+    background-color: #15324a;
+    border-color: #15324a;
+}
+
+.btn-success {
+    background-color: var(--pc-accent-green);
+    border-color: var(--pc-accent-green);
+    color: var(--pc-text-light); /* Keep text light for contrast */
+    font-weight: 600;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.3rem;
+}
+
+.btn-success:hover {
+    background-color: #219d55;
+    border-color: #219d55;
+}
+
+.btn-secondary {
+    background-color: var(--pc-secondary-light);
+    border-color: var(--pc-secondary-light);
+    color: var(--pc-text-light);
+    font-weight: 600;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.3rem;
+}
+
+.btn-secondary:hover {
+    background-color: #4a5a6a;
+    border-color: #4a5a6a;
+}
+
+.card-footer {
+    background-color: var(--pc-primary-dark);
+    color: var(--pc-text-light);
+    padding: 0.75rem 1.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+    border-top: 0;
+    border-bottom-left-radius: calc(0.5rem - 1px);
+    border-bottom-right-radius: calc(0.5rem - 1px);
+}
+
+.card-footer a {
+    color: var(--pc-text-light);
+    text-decoration: none;
+}
+
+.card-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Specific styles for results page tables */
+.table-responsive-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--pc-border-light);
+    border-radius: 0.3rem;
+    margin-top: 1rem; /* Add some space above tables */
+}
+
+.table-responsive-container table {
+    min-width: 100%;
+    white-space: nowrap;
+    margin-bottom: 0;
+    border-collapse: collapse; /* Ensure borders are clean */
+}
+
+.table-responsive-container th,
+.table-responsive-container td {
+    padding: 0.75rem 1rem;
+    vertical-align: middle;
+    border: 1px solid var(--pc-border-light);
+}
+
+.table-responsive-container th {
+    background-color: var(--pc-background-light);
+    font-weight: 600;
+    color: var(--pc-text-dark);
+    text-align: left;
+}
+
+.table-responsive-container tr:nth-child(even) {
+    background-color: #f5f5f5; /* Subtle stripe for readability */
+}
+
+/* Adjust log panel for better readability */
+.card-header.bg-info {
+    background-color: var(--pc-secondary-light) !important; /* Use softer blue-gray for log header */
+}
+
+.card-body ul.list-group-flush {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--pc-border-light);
+    border-radius: 0.3rem;
+}
+
+.list-group-item {
+    border-color: var(--pc-border-light);
+    background-color: transparent; /* Ensure no background from Bootstrap */
+}
+
+.form-label strong {
+    color: var(--pc-primary-dark);
+}
+
+.form-text {
+    font-size: 0.875rem;
+    color: var(--pc-secondary-light);
+}

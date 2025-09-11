@@ -1,0 +1,76 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Processing Results</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .table-responsive-container {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid mt-5">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h1 class="h3 mb-0">Processing Results</h1>
+                <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Primary Connect Logo">
+            </div>
+            <div class="card-body">
+                <a href="{{ url_for('download_combined_csv') }}" class="btn btn-success">Download Combined CSV Report</a>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <h3>Checklist Sheet</h3>
+            </div>
+            <div class="card-body table-responsive-container">
+                {{ checklist_sheet | safe }}
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <h3>Data Sheet</h3>
+            </div>
+            <div class="card-body table-responsive-container">
+                {{ data_sheet | safe }}
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <h3>Fuel Tracking Sheet</h3>
+            </div>
+            <div class="card-body table-responsive-container">
+                {{ fuel_tracking_sheet | safe }}
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <h3>Processing Log</h3>
+            </div>
+            <div class="card-body" style="max-height: 400px; overflow-y: auto;">
+                <ul class="list-group list-group-flush">
+                    {% for item in processing_log %}
+                        <li class="list-group-item">{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        
+        <a href="/" class="btn btn-secondary">Process More Files</a>
+    </div>
+    <footer class="container mt-4 text-center card-footer">
+        <p class="mb-0">Made by Jasmin Tinjak</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

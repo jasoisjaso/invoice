@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "8382:5000"
+    volumes:
+      - ./uploads:/app/uploads
+      - ./knowledge:/app/knowledge
+      - ./processor.log:/app/processor.log

@@ -1,0 +1,45 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Intelligent Invoice Assistant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="h3 mb-0">Intelligent Invoice Assistant</h1>
+                        <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Primary Connect Logo">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Upload one or more PDF invoices. If an invoice has a shunt, you can also upload the corresponding delivery docket(s).</p>
+                        <form method=post enctype=multipart/form-data>
+                            <div class="mb-3">
+                                <label for="invoices" class="form-label"><strong>Step 1: Select Invoice PDF(s) (Required)</strong></label>
+                                <input type=file name=invoices class="form-control" multiple required>
+                            </div>
+                            <hr>
+                            <div class="mb-3">
+                                <label for="dockets" class="form-label"><strong>Step 2: Select Delivery Docket PDF(s) (Optional)</strong></label>
+                                <input type=file name=dockets class="form-control" multiple>
+                                <div class="form-text">Only upload dockets that contain shunt information. Ensure they correspond to the uploaded invoices.</div>
+                            </div>
+                            <button type=submit class="btn btn-primary">Process Files</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container mt-4 text-center card-footer">
+        <p class="mb-0"><a href="/deployment">View Deployment Guide for IT</a> | Made by Jasmin Tinjak</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
