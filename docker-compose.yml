@@ -9,3 +9,10 @@ services:
       - ./uploads:/app/uploads
       - ./knowledge:/app/knowledge
       - ./processor.log:/app/processor.log
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token eyJhIjoiNWRmZmUxYzY0NThjOGM5YmJhZjc1ZGU1MTA5OWUyYTYiLCJ0IjoiYTkwYjRiODYtYTkwMy00NTdjLWJjMzUtZGFiMzQzZTU0ZWQyIiwicyI6IlpERTJPR05oTVRNdFpUYzJaQzAwWVRabExXSXdNRFF0T1dZek1EQTJOMkV4TXpkaCJ9
+    depends_on:
+      - web
