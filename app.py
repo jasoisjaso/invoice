@@ -13,7 +13,6 @@ from flask import Flask, request, render_template, redirect, url_for, session, m
 # =====================================================================================
 # CONFIGURATION
 # =====================================================================================
-TESSERACT_CMD = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 UPLOAD_FOLDER = 'uploads'
 KNOWLEDGE_BASE_PATH = 'knowledge'
 VENDOR_LOOKUP_FILE = os.path.join(KNOWLEDGE_BASE_PATH, 'VendorLookup.csv')
@@ -32,7 +31,6 @@ logging.basicConfig(filename=LOG_FILE, level=logging.INFO, format='%(asctime)s -
 app = Flask(__name__, static_folder='static')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SECRET_KEY'] = 'supersecretkeyyoushouldchange'
-pytesseract.pytesseract.tesseract_cmd = TESSERACT_CMD
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS

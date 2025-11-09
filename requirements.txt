@@ -3,3 +3,4 @@ pandas
 pdfplumber
 Pillow
 pytesseract
+gunicorn
