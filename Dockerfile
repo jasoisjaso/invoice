@@ -26,4 +26,4 @@ EXPOSE 5000
 ENV FLASK_APP app.py
 
 # Run app.py when the container launches
-CMD ["gunicorn", "--workers", "4", "--bind", "0.0.0.0:5000", "app:app"]
+CMD ["gunicorn", "--workers", "4", "--bind", "0.0.0.0:5000", "--log-level=debug", "--access-logfile=-", "app:app"]
