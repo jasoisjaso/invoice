@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   web:
     image: ghcr.io/jasoisjaso/invoice:latest
@@ -8,7 +7,7 @@ services:
     volumes:
       - ./uploads:/app/uploads
       - ./knowledge:/app/knowledge
-      - ./processor.log:/app/processor.log
+      - ./logs:/app/logs
 
   cloudflared:
     image: cloudflare/cloudflared:latest

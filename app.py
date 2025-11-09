@@ -15,14 +15,17 @@ from flask import Flask, request, render_template, redirect, url_for, session, m
 # =====================================================================================
 UPLOAD_FOLDER = 'uploads'
 KNOWLEDGE_BASE_PATH = 'knowledge'
+LOGS_FOLDER = 'logs'
 VENDOR_LOOKUP_FILE = os.path.join(KNOWLEDGE_BASE_PATH, 'VendorLookup.csv')
 FINANCIAL_CALENDAR_FILE = os.path.join(KNOWLEDGE_BASE_PATH, 'FinancialCalendar.csv')
-LOG_FILE = 'processor.log'
+LOG_FILE = os.path.join(LOGS_FOLDER, 'processor.log')
 ALLOWED_EXTENSIONS = {'pdf'}
 
 # =====================================================================================
 # LOGGING SETUP
 # =====================================================================================
+if not os.path.exists(LOGS_FOLDER):
+    os.makedirs(LOGS_FOLDER)
 logging.basicConfig(filename=LOG_FILE, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # =====================================================================================
