@@ -4,6 +4,7 @@ import os
 import logging
 import re
 from datetime import datetime
+from io import StringIO
 import pandas as pd
 import pdfplumber
 from PIL import Image
@@ -219,16 +220,16 @@ def process_files():
     session['fuel_tracking_sheet'] = pd.concat(all_fuel_trackers, ignore_index=True).to_json(orient='split')
 
     return render_template('results.html', 
-                           data_sheet=pd.read_json(session['data_sheet'], orient='split').to_html(classes='table table-striped', index=False),
-                           checklist_sheet=pd.read_json(session['checklist_sheet'], orient='split').to_html(classes='table table-striped', index=False),
-                           fuel_tracking_sheet=pd.read_json(session['fuel_tracking_sheet'], orient='split').to_html(classes='table table-striped', index=False))
+                           data_sheet=pd.read_json(StringIO(session['data_sheet']), orient='split').to_html(classes='table table-striped', index=False),
+                           checklist_sheet=pd.read_json(StringIO(session['checklist_sheet']), orient='split').to_html(classes='table table-striped', index=False),
+                           fuel_tracking_sheet=pd.read_json(StringIO(session['fuel_tracking_sheet']), orient='split').to_html(classes='table table-striped', index=False))
 
 @app.route('/download_combined_csv')
 def download_combined_csv():
     if 'data_sheet' not in session: return "Error: No data in session.", 404
-    data_df = pd.read_json(session['data_sheet'], orient='split')
-    checklist_df = pd.read_json(session['checklist_sheet'], orient='split')
-    fuel_df = pd.read_json(session['fuel_tracking_sheet'], orient='split')
+    data_df = pd.read_json(StringIO(session['data_sheet']), orient='split')
+    checklist_df = pd.read_json(StringIO(session['checklist_sheet']), orient='split')
+    fuel_df = pd.read_json(StringIO(session['fuel_tracking_sheet']), orient='split')
     output = checklist_df.to_csv(index=False)
     output += "\n\n--- Data Sheet ---\n"
     output += data_df.to_csv(index=False)
