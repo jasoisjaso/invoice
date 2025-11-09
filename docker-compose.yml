@@ -1,10 +1,10 @@
 version: '3.8'
 services:
   web:
-    build: .
+    image: ghcr.io/jasoisjaso/invoice:latest
     restart: unless-stopped
     ports:
-      - "5000:5000"
+      - "5456:5000"
     volumes:
       - ./uploads:/app/uploads
       - ./knowledge:/app/knowledge
